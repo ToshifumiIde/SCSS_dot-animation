@@ -1,0 +1,68 @@
+*, *:after, *:before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.dots-wrap {
+    align-items: center;
+    display: flex;
+    height: 100px;
+    justify-content: space-evenly;
+    margin: 300px auto;
+    width: 800px;
+}
+
+.dot {
+    width: 20px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 50%;
+    animation: dot 1s linear infinite ;
+}
+
+/////////////////////////////////
+//animation-delayで実装した場合//
+/////////////////////////////////
+// .dot1 {
+//     animation-delay: 200ms;
+// }
+// .dot2 {
+//     animation-delay: 400ms;
+// }
+// .dot3 {
+//     animation-delay: 600ms;
+// }
+// .dot4 {
+//     animation-delay: 800ms;
+// }
+// .dot5 {
+//     animation-delay: 1000ms;
+// }
+
+///////////////////////
+//for文で実装した場合//
+///////////////////////
+
+@for $i from 1 through 5 {
+    .dot#{$i} {
+        animation-delay: (200ms * $i);
+    }
+}
+@keyframes dot{
+    0% {
+        background-color: #ccc;
+        transform: scale(1)
+    }
+    20% {
+        transform: scale(0.7)
+    }
+    50% {
+        background-color: #222;
+        transform: scale(1.5)
+    }
+    100% {
+        background-color: #ccc;
+        transform: scale(1)
+    }
+}
